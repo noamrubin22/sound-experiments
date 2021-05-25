@@ -1,7 +1,5 @@
 let pos = 50;
 let mySound;
-let textAlinea =
-  "overconsumption, greed, exhaustion, addiction,  Could most of the problems in the world be caused by unhappiness?";
 
 function preload() {
   soundFormats("mp3", "ogg");
@@ -17,7 +15,6 @@ function setup() {
 function draw() {
   background("white");
   fill(0);
-  text(textAlinea, width * 2 - pos, height / 2);
 }
 
 let isScrolling = 0;
