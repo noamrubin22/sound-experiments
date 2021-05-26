@@ -22,7 +22,6 @@ class SoundVisual {
     noFill();
     stroke("orange");
     beginShape();
-    // stroke(20);
     for (let i = 0; i < this.waveform.length; i++) {
       let x = map(i, 0, this.waveform.length, 0, width);
       let y = map(this.waveform[i] * 2, -1, 1, 0, height);
