@@ -1,29 +1,68 @@
 class Depressed {
   constructor() {
     this.text = [
-      "one on the 4 people is depressed",
-      "mental health is a problem",
-      "the mental health pandemic is bigger than ever",
-      "a solution is necesarry",
-      "mental health hasn't been improved in 70 years",
-      "people need it more than ever",
+      "The world has been facing a huge mental health crisis before the global pandemic struck us in 2020(1). The need for new solutions has only increased as the impact of COVID-19 leaves a pandemic of mental health in its wake(2). The future health of individuals and societies depends upon improving the efficacy of mental health treatment and ensuring broad access for those in need",
+      "1 in 4 people will be affected by mental or neurological disorders at some point in their lives (4)",
+      "1 in 5 adults experience mental illness each year (5)",
+      "66% of patients remain symptomatic (6)",
+      "33% of patients are treatment-resistant (7)",
+      "30% of patients do not respond to any treatment at all",
+      "the efficacy of treatment has not improved for 70 years",
+      "the growing crisis will cost the world €16 trillion by 2030",
+      "COVID-19 has disrupted or halted mental health services in 93% of countries worldwide",
+      "mental health disorders are among the leading causes of ill-health and disability worldwide",
+      "one person dies by suiced every 40 seconds",
+      "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely",
+      "in recent years, the amount of people dieying from opiod overdose has increased dramatically",
+      "the covid lockdowns have led to increased social isolation, increased anxiety, depression and PTSD",
     ];
-    this.x = 40;
-    this.y = 100;
+    this.x = windowWidth - windowWidth / 4;
+    this.y = windowHeight - windowWidth / 7;
     this.file = "assets/subnautica.mp3";
+    this.mySound = null;
+    this.fft = null;
+    this.peakDetect = null;
   }
 
   preload() {
-    mySound = loadSound(this.file);
+    print("depressed preload");
+    this.mySound = loadSound(this.file);
   }
 
-  display() {
-    if (!mySound.isPlaying) {
-      mySound.play();
-    }
-    let peaks = mySound.getPeaks();
+  setup() {
+    print("depressed setup");
+    background(0);
+    noStroke();
+    fill(255);
+    textSize(15);
+    textAlign(CENTER);
+
+    this.fft = new p5.FFT();
+    this.peakDetect = new p5.PeakDetect();
+  }
+
+  draw() {
+    background(255);
+    fill(0);
+    this.fft.analyze();
+    this.peakDetect.update(this.fft);
     this.text.map((sentence, index) => {
-      text(sentence, this.x + peak, this.y);
+      text(
+        sentence,
+        (index + 1) * windowWidth - this.x,
+        this.y / 2,
+        windowWidth / 2,
+        windowHeight
+      );
     });
+    if (this.peakDetect.isDetected) {
+      this.x = this.x + windowWidth;
+    }
+  }
+
+  playMusic() {
+    if (!this.mySound.isPlaying()) {
+      this.mySound.play();
+    }
   }
 }

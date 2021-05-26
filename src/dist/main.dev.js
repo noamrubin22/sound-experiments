@@ -1,13 +1,15 @@
-let poem;
-let soundVisual;
-let depressed;
-let mySound;
-let mySound2;
-let mode;
+"use strict";
+
+var poem;
+var soundVisual;
+var depressed;
+var mySound;
+var mySound2;
+var mode;
 
 function preload() {
-  soundFormats("mp3", "ogg");
-  // mySound = loadSound("assets/unfinished.mp3");
+  soundFormats("mp3", "ogg"); // mySound = loadSound("assets/unfinished.mp3");
+
   mySound = loadSound("assets/test.wav");
   mySound2 = loadSound("assets/waterlife.mp3");
   mySound3 = loadSound("assets/subnautica.mp3");
@@ -20,6 +22,7 @@ function setup() {
   textSize(24);
   textAlign(CENTER, CENTER);
   background("white");
+
   if (mode === 0) {
     poem = new Poem();
     soundVisual = new SoundVisual();
@@ -30,6 +33,7 @@ function setup() {
 function draw() {
   if (mode == 0) {
     poem.display();
+
     if (mySound.isPlaying()) {
       poem.remove();
       push();
@@ -44,6 +48,7 @@ function draw() {
       mySound3.play();
     }
   }
+
   mySound.onended(function () {
     print("audio ended");
     mode = 1;
