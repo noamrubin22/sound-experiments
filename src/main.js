@@ -22,7 +22,7 @@ function setup() {
   background("white");
   if (mode === 0) {
     poem = new Poem();
-    soundVisual = new SoundVisual();
+    soundVisual = new SoundVisual(mySound, "blue", "orange");
     print(mySound);
   }
 }
@@ -33,7 +33,7 @@ function draw() {
     if (mySound.isPlaying()) {
       poem.remove();
       push();
-      soundVisual.displayWavelength();
+      soundVisual.displayWavelength("horizontal", 2);
       pop();
       setTimeout(function () {
         soundVisual.displayFrequency();

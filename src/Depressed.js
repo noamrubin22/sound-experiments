@@ -1,8 +1,8 @@
 class Depressed {
   constructor() {
+    this.startText =
+      "the world has been facing a huge mental health crisis before the global pandemic struck us in 2020(1). the need for new solutions has only increased as the impact of COVID-19 leaves a pandemic of mental health in its wake(2). the future health of individuals and societies depends upon improving the efficacy of mental health treatment and ensuring broad access for those in need.";
     this.text = [
-      "The world has been facing a huge mental health crisis before the global pandemic struck us in 2020(1). The need for new solutions has only increased as the impact of COVID-19 leaves a pandemic of mental health in its wake(2). The future health of individuals and societies depends upon improving the efficacy of mental health treatment and ensuring broad access for those in need",
-      "1 in 4 people will be affected by mental or neurological disorders at some point in their lives (4)",
       "1 in 5 adults experience mental illness each year (5)",
       "66% of patients remain symptomatic (6)",
       "33% of patients are treatment-resistant (7)",
@@ -18,10 +18,13 @@ class Depressed {
     ];
     this.x = windowWidth - windowWidth / 4;
     this.y = windowHeight - windowWidth / 7;
+    this.xStartText = windowWidth * 6;
+    this.yStartText = windowHeight / 2;
     this.file = "assets/subnautica.mp3";
     this.mySound = null;
     this.fft = null;
     this.peakDetect = null;
+    this.mode = 0;
   }
 
   preload() {
@@ -46,16 +49,25 @@ class Depressed {
     fill(0);
     this.fft.analyze();
     this.peakDetect.update(this.fft);
-    this.text.map((sentence, index) => {
-      text(
-        sentence,
-        (index + 1) * windowWidth - this.x,
-        this.y / 2,
-        windowWidth / 2,
-        windowHeight
-      );
-    });
+    if (this.mode === 0) {
+      textSize(120);
+      this.xStartText = this.xStartText - 8;
+      text(this.startText, this.xStartText, this.yStartText);
+    } else {
+      textSize(70);
+      this.text.map((sentence, index) => {
+        text(
+          sentence,
+          (index + 1) * windowWidth - this.x,
+          this.y / 2,
+          windowWidth / 2,
+          windowHeight
+        );
+      });
+    }
     if (this.peakDetect.isDetected) {
+      this.mode = 1;
+      this.xStartText = this.xStartText + windowWidth;
       this.x = this.x + windowWidth;
     }
   }
