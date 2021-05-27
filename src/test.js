@@ -1,4 +1,4 @@
-let mySound3;
+let mySound;
 let depressed;
 let soundVisual;
 let startScreen = 0;
@@ -6,21 +6,23 @@ let startScreen = 0;
 function preload() {
   depressed = new Depressed();
   depressed.preload();
-  mySound3 = loadSound("assets/subnautica.mp3");
+  mySound = loadSound("assets/subnautica.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth - 10, windowHeight - 20);
   depressed.setup();
-  text("are you allowing yourself to feel?", windowWidth / 2, windowHeight / 2);
-  soundVisual = new SoundVisual(mySound3, "black", "black");
+  text(
+    "are you allowing yourself to feel your feelings?",
+    windowWidth / 2,
+    windowHeight / 2
+  );
+  soundVisual = new SoundVisual(mySound, "black", "black");
 }
 
 function draw() {
   fill(255);
-  if (startScreen == 0) {
-    print("do nothing");
-  } else {
+  if (!startScreen == 0) {
     depressed.draw();
     soundVisual.displayWavelength("horizontal", 1.5);
   }
