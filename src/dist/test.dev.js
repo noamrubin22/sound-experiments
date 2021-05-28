@@ -9,6 +9,7 @@ function preload() {
   depressed = new Depressed();
   depressed.preload();
   mySound = loadSound("assets/subnautica.mp3");
+  textFont("Helvetica");
 }
 
 function setup() {
