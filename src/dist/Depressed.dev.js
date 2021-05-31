@@ -52,7 +52,7 @@ function () {
       background(255);
       fill(0);
       this.fft.analyze();
-      this.peakDetect.update(this.fft); // this.mySound.rate(5);
+      this.peakDetect.update(this.fft);
 
       if (this.mode === 0) {
         textSize(111);

@@ -18,7 +18,7 @@ class Poem {
   }
 
   display() {
-    fill("blue");
+    fill("darkblue");
     this.poem.map((sentence, index) => {
       text(sentence, this.x, this.y + 70 * index);
     });

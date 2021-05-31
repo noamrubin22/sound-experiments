@@ -69,7 +69,6 @@ class Depressed {
     fill(0);
     this.fft.analyze();
     this.peakDetect.update(this.fft);
-    // this.mySound.rate(5);
     if (this.mode === 0) {
       textSize(111);
       this.xStartText = this.xStartText - 10;

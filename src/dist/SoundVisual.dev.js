@@ -16,7 +16,7 @@ function () {
     this.sound = soundFile;
     this.spectrum = 0;
     this.waveform = 0;
-    this.colorFrequency = frequencyColor;
+    this.frequencyColor = frequencyColor;
     this.wavelengthColor = wavelengthColor;
   }
 
@@ -25,17 +25,17 @@ function () {
     value: function displayFrequency() {
       this.spectrum = this.fft.analyze();
       noStroke();
-      fill(this.colorFrequency);
+      fill(this.frequencyColor);
 
       for (var i = 0; i < this.spectrum.length; i++) {
-        var x = map(i, 0, this.spectrum.length / 2, 0, width);
+        var x = map(i, 0, this.spectrum.length / 1.9, 0, width);
         var h = -height + map(this.spectrum[i], 0, 255, height, 0);
         rect(x, height, width / this.spectrum.length, h * 2);
       }
     }
   }, {
     key: "displayWavelength",
-    value: function displayWavelength(position, amplitude) {
+    value: function displayWavelength(position, amplitude, yPosition) {
       this.waveform = this.fft.waveform();
       noFill();
       stroke(this.wavelengthColor);
@@ -43,7 +43,7 @@ function () {
 
       for (var i = 0; i < this.waveform.length; i++) {
         var x = map(i, 0, this.waveform.length, 0, width);
-        var y = map(this.waveform[i] * amplitude, -6, 1, 0, height);
+        var y = map(this.waveform[i] * amplitude, -1 * yPosition, 1, 0, height);
 
         if (position === "vertical") {
           vertex(y, x);
