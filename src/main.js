@@ -9,27 +9,28 @@ let startScreen = 0;
 
 function preload() {
   soundFormats("mp3", "ogg");
-  mySound = loadSound("assets/unfinished.mp3");
+  // mySound = loadSound("assets/unfinished.mp3");
+  mySound = loadSound("assets/test.wav");
   mySound2 = loadSound("assets/waterlife.mp3");
+  poem = new Poem();
   depressed = new Depressed();
-  depressed.preload();
   mode = 0;
 }
 
 function setup() {
   createCanvas(windowWidth - 10, windowHeight - 20);
-  textSize(20);
-  textAlign(CENTER, CENTER);
+  depressed.preload();
   background("white");
+  textAlign(CENTER, CENTER);
+  textFont("Roboto Mono, monospace");
   if (mode === 0) {
-    poem = new Poem();
+    poem.display();
     soundVisual = new SoundVisual(mySound, "darkblue", "orange");
   }
 }
 
 function draw() {
   if (mode === 0) {
-    poem.display();
     if (mySound.isPlaying()) {
       poem.remove();
       push();
