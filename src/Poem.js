@@ -1,6 +1,6 @@
 class Poem {
-  constructor() {
-    this.poem = [
+  constructor(chapterManager) {
+    this.poem1 = [
       "pain",
       "escaping the pain by spending more money, by eating more food, by taking more drugs",
       "to forget about the pain",
@@ -15,21 +15,72 @@ class Poem {
       "suppressing emotions, hurting, exploding, how can i act different than",
       "causing more pain?",
     ];
-    this.x = windowWidth / 2;
-    this.y = 40;
+    this.poem2 = [
+      "to agree that we don't know",
+      "isn't that the beauty of science?",
+      "i am trying to understand",
+      "in the hope of making more sense",
+      "of everything that is happening",
+      "around me",
+      "inside me",
+      "every answer brings a question",
+      "the mysteries of life",
+      "they are never ending",
+      "and i agree to never truly know",
+      "",
+      "but i am just curious",
+    ];
+    this.chapterManager = chapterManager;
   }
 
-  display() {
-    print("poem display");
+  preload() {
+    this.mySound = loadSound("assets/unfinished.mp3");
+    // this.mySound = loadSound("assets/test.wav");
+    this.soundVisual = new SoundVisual(this.mySound, "darkblue", "orange");
+  }
+
+  setup() {
+    print("poem setup");
     fill("darkblue");
     textSize(20);
     textAlign(CENTER, CENTER);
-    this.poem.map((sentence, index) => {
-      text(sentence, this.x, this.y + 40 * index);
+    background(255);
+    this.y = 40;
+    this.x = windowWidth / 2;
+
+    this.mySound.onended(() => {
+      this.chapterManager.next();
     });
   }
 
-  remove() {
+  draw() {
+    if (!this.mySound.isPlaying()) {
+      background(255);
+    }
+    this.poem1.map((sentence, index) => {
+      text(sentence, this.x, this.y + 40 * index);
+    });
+    if (this.mySound.isPlaying()) {
+      this._remove();
+      this.soundVisual.displayWavelength("horizontal", 2.5, 1);
+      this.soundVisual.displayFrequency("horizontal");
+    }
+
+    if (this.mySound.currentTime() > 1) {
+      push();
+      textSize(14);
+      text("can you allow yourself to feel?", width / 5, height / 2);
+      pop();
+    }
+  }
+
+  _remove() {
     this.y = this.y + 0.5;
+  }
+
+  mousePressed() {
+    if (!this.mySound.isPlaying()) {
+      this.mySound.play();
+    }
   }
 }

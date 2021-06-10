@@ -22,7 +22,7 @@ function () {
 
   _createClass(SoundVisual, [{
     key: "displayFrequency",
-    value: function displayFrequency() {
+    value: function displayFrequency(position) {
       this.spectrum = this.fft.analyze();
       noStroke();
       fill(this.frequencyColor);
@@ -30,7 +30,12 @@ function () {
       for (var i = 0; i < this.spectrum.length; i++) {
         var x = map(i, 0, this.spectrum.length / 1.9, 0, width);
         var h = -height + map(this.spectrum[i], 0, 255, height, 0);
-        rect(x, height, width / this.spectrum.length, h * 2);
+
+        if (position === "vertical") {
+          rect(height, x, width / 100, h * 2);
+        } else {
+          rect(x, height, width / this.spectrum.length, h * 2);
+        }
       }
     }
   }, {

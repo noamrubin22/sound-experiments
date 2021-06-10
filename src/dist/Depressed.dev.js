@@ -14,33 +14,22 @@ function () {
 
     this.startText = "the world was already facing a mental health crisis before the global pandemic hit us in 2019.¹ the impact of COVID-19 only increased our need for new solutions facing a pandemic of mental health.² the future health of individuals and societies depends upon improving the efficacy of mental health treatment and making sure access will reach those in need.";
     this.text = ["", "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰", "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰", "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰", "each year, 1 in 5 adults is experiencing mental illness⁵", "each year, 1 in 5 adults is experiencing mental illness⁵", "the lockdowns have led to increased social isolation, anxiety, depression and PTSD", "the lockdowns have led to increased social isolation, anxiety, depression and PTSD", "in 93% of countries worldwide, COVID-19 has disrupted or stopped mental health services.", "in 93% of countries worldwide, COVID-19 has disrupted or stopped mental health services.", "in 93% of countries worldwide, COVID-19 has disrupted or stopped mental health services.", "the growing mental health crisis is estimated to cost the world €16 trillion by 2030", "the growing mental health crisis is estimated to cost the world €16 trillion by 2030", "the growing mental health crisis is estimated to cost the world €16 trillion by 2030", "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely", "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely", "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely", "in recent years, the amount of people dieying from opiod overdose has increased dramatically", "in recent years, the amount of people dieying from opiod overdose has increased dramatically", "in recent years, the amount of people dieying from opiod overdose has increased dramatically", "every 40 seconds, a person dies by suicied¹¹", "every 40 seconds, a person dies by suicied¹¹", "the efficacy of mental health treatment has not been improved for the past 70 years", "the efficacy of mental health treatment has not been improved for the past 70 years", "66% of patients remain having symptoms after treatment⁶", "66% of patients remain having symptoms after treatment⁶", "30% of patients do not respond to any treatment at all⁷", "30% of patients do not respond to any treatment at all⁷", "we need to think in different ways to find a solution", "we need to think in different ways to find a solution", ""];
-    this.x = windowWidth - windowWidth / 4;
-    this.y = windowHeight - windowWidth / 7;
-    this.xStartText = windowWidth * 10;
-    this.yStartText = windowHeight / 2;
-    this.file = "assets/subnautica.mp3";
-    this.mySound = null;
-    this.fft = null;
-    this.peakDetect = null;
-    this.mode = 0;
-    this.button = null;
   }
 
   _createClass(Depressed, [{
     key: "preload",
     value: function preload() {
-      print("depressed preload");
-      this.mySound = loadSound(this.file);
+      this.mySound = loadSound("assets/subnautica.mp3");
     }
   }, {
     key: "setup",
     value: function setup() {
-      print("depressed setup");
-      background(0);
-      noStroke();
-      fill(255);
-      textSize(15);
-      textAlign(CENTER);
+      this.x = windowWidth - windowWidth / 4;
+      this.y = windowHeight - windowWidth / 7;
+      this.xStartText = windowWidth * 10;
+      this.yStartText = windowHeight / 2;
+      this.mode = 0;
+      this.soundVisual = new SoundVisual(this.mySound, "black", "black");
       this.fft = new p5.FFT();
       this.peakDetect = new p5.PeakDetect();
     }
@@ -50,20 +39,24 @@ function () {
       var _this = this;
 
       background(255);
+      noStroke();
+      textSize(15);
       fill(0);
       this.fft.analyze();
-      this.peakDetect.update(this.fft); // this.mySound.rate(5);
+      this.peakDetect.update(this.fft);
+      this.soundVisual.displayWavelength("horizontal", 1.5, 6);
 
       if (this.mode === 0) {
         textSize(111);
-        this.xStartText = this.xStartText - 10;
+        this.xStartText = this.xStartText - 15;
         text(this.startText, this.xStartText, this.yStartText);
       } else {
         textSize(55);
         this.text.map(function (sentence, index) {
           text(sentence, (index + 1) * windowWidth - _this.x, _this.y / 2.5, windowWidth / 2);
         });
-      }
+      } // zoek nieuwe frequency threshold
+
 
       if (this.peakDetect.isDetected) {
         this.mode = 1;
@@ -72,8 +65,8 @@ function () {
       }
     }
   }, {
-    key: "playMusic",
-    value: function playMusic() {
+    key: "mousePressed",
+    value: function mousePressed() {
       if (!this.mySound.isPlaying()) {
         this.mySound.play();
       }

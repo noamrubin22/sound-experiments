@@ -35,40 +35,34 @@ class Depressed {
       "we need to think in different ways to find a solution",
       "",
     ];
+  }
+
+  preload() {
+    this.mySound = loadSound("assets/subnautica.mp3");
+  }
+
+  setup() {
     this.x = windowWidth - windowWidth / 4;
     this.y = windowHeight - windowWidth / 7;
     this.xStartText = windowWidth * 10;
     this.yStartText = windowHeight / 2;
-    this.file = "assets/subnautica.mp3";
-    this.mySound = null;
-    this.fft = null;
-    this.peakDetect = null;
     this.mode = 0;
-    this.button = null;
-  }
-  preload() {
-    print("depressed preload");
-    this.mySound = loadSound(this.file);
-  }
-  setup() {
-    print("depressed setup");
-    background(0);
-    noStroke();
-    fill(255);
-    textSize(15);
-    textAlign(CENTER);
+    this.soundVisual = new SoundVisual(this.mySound, "black", "black");
     this.fft = new p5.FFT();
     this.peakDetect = new p5.PeakDetect();
   }
+
   draw() {
     background(255);
+    noStroke();
+    textSize(15);
     fill(0);
     this.fft.analyze();
     this.peakDetect.update(this.fft);
-    // this.mySound.rate(5);
+    this.soundVisual.displayWavelength("horizontal", 1.5, 6);
     if (this.mode === 0) {
       textSize(111);
-      this.xStartText = this.xStartText - 10;
+      this.xStartText = this.xStartText - 15;
       text(this.startText, this.xStartText, this.yStartText);
     } else {
       textSize(55);
@@ -81,13 +75,14 @@ class Depressed {
         );
       });
     }
+    // zoek nieuwe frequency threshold
     if (this.peakDetect.isDetected) {
       this.mode = 1;
       this.xStartText = this.xStartText + windowWidth;
       this.x = this.x + windowWidth;
     }
   }
-  playMusic() {
+  mousePressed() {
     if (!this.mySound.isPlaying()) {
       this.mySound.play();
     }

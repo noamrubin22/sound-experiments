@@ -1,13 +1,6 @@
-let brain1, brain2, brain3, gut, gut1, gut2, gut3, gut4;
-let posX = 0;
-let brainPosX = 0;
-let posY = 0;
-let brainPosY = 0;
-let size = 200;
-let x = 0;
-let increment = 0.4;
-let resize = 10;
-
+let gutBrain, brain1;
+let gutBrainImages = [];
+let i = 0;
 function preload() {
   brain1 = loadImage("../assets/gutBrain/brainScan.png");
   brain2 = loadImage("../assets/gutBrain/brainScan1.png");
@@ -21,49 +14,36 @@ function preload() {
   flowers2 = loadImage("../assets/gutBrain/flowers2.png");
   flowers3 = loadImage("../assets/gutBrain/flowers3.png");
   flowers4 = loadImage("../assets/gutBrain/flowers4.png");
+  gutBrainImages.push(
+    gut1,
+    gut2,
+    gut4,
+    brain3,
+    gut1,
+    gut3,
+    brain1,
+    brain2,
+    flowers1,
+    flowers2,
+    flowers3,
+    flowers4
+  );
+  gutBrain = new GutBrain(gutBrainImages);
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth - 10, windowHeight - 20);
+  gutBrain.setup();
 }
 
 function draw() {
-  background(209);
-  textSize(20);
-  textAlign(CENTER, CENTER);
-  text(
-    "studied show a connection between the gut and the brain",
-    windowWidth / 2,
-    40
-  );
-  image(gut3, posX + 30, posY + 100);
-  image(gut1, 470 - posX, posY + 100);
-  image(gut4, 920 - posX, posY + 100);
-  push();
-  tint(255, 100);
-  image(brain3, mouseX, mouseY, 500, 500);
-  pop();
-  push();
-  tint(255, 100);
-  pop();
-
-  posX += random(-1, 1);
-  posY += random(-1, 1);
-
-  //   if (size < 0.2) {
-  //     resize = 1 / resize;
-  //   } else {
-  //     size = size - increment;
-  //   }
+  gutBrain.draw(i);
 }
 
 function mousePressed() {
-  print("Mouseclicked");
-  posX = 1000;
-  posY = 1000;
-  fill(0);
-  stroke("black");
-  resize = 5.5;
-  increment = 0;
-  image(gut4, 100, 100);
+  if (i < 11) {
+    i++;
+  } else {
+    gutBrain.createBtn();
+  }
 }
