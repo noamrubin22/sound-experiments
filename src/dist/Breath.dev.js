@@ -17,7 +17,7 @@ function () {
     key: "preload",
     value: function preload() {
       this.image = loadImage("../assets/Breath/circuit.png");
-      this.mySound = loadSound("../assets/Breath/sit.mp3");
+      this.mySound = loadSound("../assets/songs/sit.mp3");
     }
   }, {
     key: "setup",

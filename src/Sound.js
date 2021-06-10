@@ -5,9 +5,8 @@ class Sound {
   }
 
   preload() {
-    console.log("sound preload");
     soundFormats("mp3", "ogg");
-    this.sound = loadSound("assets/cyanure.mp3");
+    this.sound = loadSound("assets/songs/cyanure.mp3");
   }
 
   onScroll(event) {

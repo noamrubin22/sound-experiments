@@ -1,13 +1,21 @@
 "use strict";
 
 var chapterManager = new ChapterManager();
-chapterManager.addChapter(new Poem(chapterManager));
+chapterManager.addChapter(new Introduction(chapterManager));
+chapterManager.addChapter(new PainPoem(chapterManager));
+chapterManager.addChapter(new Question(chapterManager));
 chapterManager.addChapter(new Depressed(chapterManager));
+chapterManager.addChapter(new SciencePoem(chapterManager));
 chapterManager.addChapter(new GutBrain(chapterManager));
 chapterManager.addChapter(new Breath(chapterManager));
+var depressed = new Depressed(chapterManager);
+var sciencePoem = new SciencePoem(chapterManager);
+var gutBrain = new GutBrain(chapterManager);
 
 function preload() {
-  chapterManager.preload();
+  chapterManager.preload(); // depressed.preload();
+  // sciencePoem.preload();
+  // gutBrain.preload();
 }
 
 function setup() {
@@ -15,13 +23,19 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  chapterManager.start();
+  chapterManager.start(); // depressed.setup();
+  // sciencePoem.setup();
+  // gutBrain.setup();
 }
 
 function draw() {
-  chapterManager.draw();
+  chapterManager.draw(); // depressed.draw();
+  // sciencePoem.draw();
+  // gutBrain.draw();
 }
 
 function mousePressed() {
-  chapterManager.mousePressed();
+  chapterManager.mousePressed(); // depressed.mousePressed();
+  // sciencePoem.mousePressed();
+  // gutBrain.mousePressed();
 }
