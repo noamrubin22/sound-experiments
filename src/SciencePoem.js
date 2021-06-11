@@ -8,8 +8,7 @@ class SciencePoem {
       "of everything that is happening",
       "around me",
       "inside me",
-      "answers, leading me to question",
-      " .. everything",
+      "the more i know the more i question",
       "and i agree to never truly know",
       "",
       "but i am just curious",
@@ -42,6 +41,7 @@ class SciencePoem {
   }
 
   mousePressed() {
+    this.mySound.fade(0, 1.5);
     this.chapterManager.next();
   }
 }

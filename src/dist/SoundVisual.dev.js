@@ -9,7 +9,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var SoundVisual =
 /*#__PURE__*/
 function () {
-  function SoundVisual(soundFile, frequencyColor, wavelengthColor) {
+  function SoundVisual(soundFile, frequencyColor, wavelengthColor, circleGraphColor) {
     _classCallCheck(this, SoundVisual);
 
     this.fft = new p5.FFT();
@@ -18,6 +18,9 @@ function () {
     this.waveform = 0;
     this.frequencyColor = frequencyColor;
     this.wavelengthColor = wavelengthColor;
+    this.circleGraphColor = circleGraphColor;
+    this.amplitude = new p5.Amplitude();
+    this.volhistory = [];
   }
 
   _createClass(SoundVisual, [{
@@ -59,6 +62,31 @@ function () {
 
       endShape();
     }
+  }, {
+    key: "circleGraph",
+    value: function circleGraph() {
+      angleMode(DEGREES);
+      var vol = this.amplitude.getLevel();
+      this.volhistory.push(vol);
+      stroke(this.circleGraphColor);
+      noFill();
+      translate(width / 2, height / 2);
+      beginShape();
+
+      for (var i = 0; i < 360; i++) {
+        var r = map(this.volhistory[i], 0, 1, 10, 100);
+        var x = r * 5 * cos(i);
+        var y = r * 5 * sin(i);
+        vertex(x, y);
+      }
+
+      endShape();
+
+      if (this.volhistory.length > 360) {
+        this.volhistory.splice(0, 1);
+      }
+    } //  credits for code: https://github.com/CodingTrain/website/blob/main/Tutorials/P5JS/p5.js_sound/17.10_radialGraph/sketch.js
+
   }]);
 
   return SoundVisual;

@@ -12,7 +12,7 @@ function () {
   function SciencePoem(chapterManager) {
     _classCallCheck(this, SciencePoem);
 
-    this.text = ["to agree that we don't know", "isn't that the beauty of science?", "i am trying to understand", "in the hope of making more sense", "of everything that is happening", "around me", "inside me", "answers, leading me to question", " .. everything", "and i agree to never truly know", "", "but i am just curious"];
+    this.text = ["to agree that we don't know", "isn't that the beauty of science?", "i am trying to understand", "in the hope of making more sense", "of everything that is happening", "around me", "inside me", "the more i know the more i question", "and i agree to never truly know", "", "but i am just curious"];
     this.chapterManager = chapterManager;
   }
 
@@ -49,6 +49,7 @@ function () {
   }, {
     key: "mousePressed",
     value: function mousePressed() {
+      this.mySound.fade(0, 1.5);
       this.chapterManager.next();
     }
   }]);

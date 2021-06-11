@@ -111,10 +111,10 @@ class Depressed {
     //   this.mySound.play();
     //   // this.mySound.rate(5);
     // }
-    if (this.textEnd) {
-      print("text ended");
-      this.mySound.stop();
-      chapterManager.next();
-    }
+    // if (this.textEnd) {
+    print("text ended");
+    this.mySound.stop();
+    chapterManager.next();
+    // }
   }
 }

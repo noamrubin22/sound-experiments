@@ -45,6 +45,13 @@ function () {
       }
     }
   }, {
+    key: "mouseWheel",
+    value: function mouseWheel() {
+      if (this.currentChapter === new Breath()) {
+        this.currentChapter.mouseWheel();
+      }
+    }
+  }, {
     key: "addChapter",
     value: function addChapter(chapter) {
       this.chapters.push(chapter);

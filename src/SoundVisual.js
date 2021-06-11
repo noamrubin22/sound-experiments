@@ -1,11 +1,14 @@
 class SoundVisual {
-  constructor(soundFile, frequencyColor, wavelengthColor) {
+  constructor(soundFile, frequencyColor, wavelengthColor, circleGraphColor) {
     this.fft = new p5.FFT();
     this.sound = soundFile;
     this.spectrum = 0;
     this.waveform = 0;
     this.frequencyColor = frequencyColor;
     this.wavelengthColor = wavelengthColor;
+    this.circleGraphColor = circleGraphColor;
+    this.amplitude = new p5.Amplitude();
+    this.volhistory = [];
   }
 
   displayFrequency(position) {
@@ -39,4 +42,28 @@ class SoundVisual {
     }
     endShape();
   }
+
+  circleGraph() {
+    angleMode(DEGREES);
+    let vol = this.amplitude.getLevel();
+    this.volhistory.push(vol);
+    stroke(this.circleGraphColor);
+    noFill();
+
+    translate(width / 2, height / 2);
+    beginShape();
+    for (let i = 0; i < 360; i++) {
+      let r = map(this.volhistory[i], 0, 1, 10, 100);
+      let x = r * 5 * cos(i);
+      let y = r * 5 * sin(i);
+      vertex(x, y);
+    }
+    endShape();
+
+    if (this.volhistory.length > 360) {
+      this.volhistory.splice(0, 1);
+    }
+  }
+
+  //  credits for code: https://github.com/CodingTrain/website/blob/main/Tutorials/P5JS/p5.js_sound/17.10_radialGraph/sketch.js
 }

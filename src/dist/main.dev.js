@@ -11,11 +11,15 @@ chapterManager.addChapter(new Breath(chapterManager));
 var depressed = new Depressed(chapterManager);
 var sciencePoem = new SciencePoem(chapterManager);
 var gutBrain = new GutBrain(chapterManager);
+var breath = new Breath(chapterManager);
 
 function preload() {
   chapterManager.preload(); // depressed.preload();
   // sciencePoem.preload();
   // gutBrain.preload();
+  // breath.preload();
+
+  print(chapterManager);
 }
 
 function setup() {
@@ -26,16 +30,24 @@ function setup() {
   chapterManager.start(); // depressed.setup();
   // sciencePoem.setup();
   // gutBrain.setup();
+  // breath.setup();
 }
 
 function draw() {
   chapterManager.draw(); // depressed.draw();
   // sciencePoem.draw();
   // gutBrain.draw();
+  // breath.draw();
 }
 
 function mousePressed() {
   chapterManager.mousePressed(); // depressed.mousePressed();
   // sciencePoem.mousePressed();
   // gutBrain.mousePressed();
+  // breath.mousePressed();
+}
+
+function mouseWheel(event) {
+  chapterManager.currentChapter.mouseWheel(event);
+  print("arrived to breath");
 }

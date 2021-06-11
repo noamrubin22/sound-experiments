@@ -10,11 +10,11 @@ class GutBrain {
       "Personally, I believe that the gut-brain axis could be a key player in fighting the global mental health pandemic. Awareness about the symbiotic relationship that we have with our gut microbiota is necessary for understanding the influence of food intake on mental health.",
       "One way to reach awareness among people would be through education. Nowadays, people generally know that food intake influences their physical health. However, although research is showing evidence on the relation between food intake, gut microbiota and mental health, this has not reached the public yet.",
       "On the other hand, it is almost an universal human experience for stress or anxiety to alter the gut function and cause symptoms like diarrhoea, nausea and discomfort.",
-      "To become aware that this phenomena can be used the other way around (one could decrease anxiety and stress by changing food intake and altering the population of gut bacteria), but also in order to understand how one's own body responds to certain foods and certain moods/ stress levels, clear data of oneself would be of great help.",
+      "To understand that this phenomena can be used the other way around (one could decrease anxiety and stress by changing food intake and altering the population of gut bacteria), but also in order to understand how one's own body responds to certain foods and certain moods/ stress levels, clear data of oneself would be of great help.",
       "I was thinking of creating an application, where users’ can track their mood, food intake and digestion. Users’ will be asked to answer a daily questionnaire about their mood, food intake and characteristics/activity of their digestion. Optional* could be to use image recognition and in this way categorize “happy”, “depressed” and “anxious” feces.",
       "*I am saying optional because I am just not sure how willing people would be taking daily pictures of their *poop* and upload it to an application. ;)",
       "A statistical analysis will be performed with the data, giving the users’ a higher awareness of how their mood is connected to what they eat and how they digest. A higher awareness would help individuals to recognize certain characteristics / behavior / and help prevent degradation of mental health in the future.",
-      "Coming back to the vagus nerve. The vagus nerve represents the main component of the parasympathetic nervous system, which regulates crucial bodily functions, including control of mood, immune response, digestion, and heart rate. It is in communication with the brain and sends important information about the state of inner organs via afferent nerves. It has the capacity to regulate stress responses, mood and anxiety. This can be influenced by stimulation or by gut bacteria. Another, in my opinion, very interesting finding is that the activity in the vagus nerve can be regulated by breathing.(8)",
+      "Coming back to the vagus nerve. The vagus nerve represents the main component of the parasympathetic nervous system, which regulates crucial bodily functions, including control of mood, immune response, digestion, and heart rate. It is in communication with the brain and sends important information about the state of inner organs via afferent nerves. It has the capacity to regulate stress responses, mood and anxiety. This can be influenced by stimulation or by gut bacteria. Another, in my opinion, very interesting finding is that the activity in the vagus nerve can be regulated by breathing(8)",
     ];
     this.index = 0;
     this.title = "The Gut - Brain axis";
@@ -54,6 +54,7 @@ class GutBrain {
       ...this.flowerImages,
       ...this.vagusNerveImages,
     ];
+    this.mySound = loadSound("../assets/songs/vaporware.mp3");
   }
 
   setup() {
@@ -63,11 +64,14 @@ class GutBrain {
     this.posY = 0;
     this.posXStart = 500;
     this.posYPlus = 100;
-    text(this.title, windowWidth / 2, 100);
   }
 
   draw() {
     background(209);
+    text(this.title, windowWidth / 2, 60);
+    if (!this.mySound.isPlaying()) {
+      this.mySound.play();
+    }
     if (this.index < 12) {
       if (this.index % 3 > 0) {
         text(this.text[this.index], windowWidth / 15, windowHeight / 4, 300);
@@ -93,10 +97,9 @@ class GutBrain {
   mousePressed() {
     if (this.index < this.text.length) {
       this.index++;
-      print(this.index);
     } else {
       this.chapterManager.next();
-      // this.mySound.stop();
+      this.mySound.fade(0, 1.5);
     }
   }
 }

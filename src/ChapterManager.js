@@ -28,6 +28,12 @@ class ChapterManager {
     }
   }
 
+  mouseWheel() {
+    if (this.currentChapter === new Breath()) {
+      this.currentChapter.mouseWheel();
+    }
+  }
+
   addChapter(chapter) {
     this.chapters.push(chapter);
   }
