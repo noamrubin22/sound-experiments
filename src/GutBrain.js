@@ -23,31 +23,31 @@ class GutBrain {
 
   preload() {
     this.brainImages = [
-      loadImage("../assets/gutBrain/brainScanWhole.png"),
-      loadImage("../assets/gutBrain/brainScan.png"),
-      loadImage("../assets/gutBrain/brainScan1.png"),
-      loadImage("../assets/gutBrain/brainWhole.png"),
+      loadImage("assets/gutBrain/brainScanWhole.png"),
+      loadImage("assets/gutBrain/brainScan.png"),
+      loadImage("assets/gutBrain/brainScan1.png"),
+      loadImage("assets/gutBrain/brainWhole.png"),
     ];
     this.gutImages = [
-      loadImage("../assets/gutBrain/gut1.png"),
-      loadImage("../assets/gutBrain/gut2.png"),
-      loadImage("../assets/gutBrain/gut.png"),
-      loadImage("../assets/gutBrain/gut3.png"),
-      loadImage("../assets/gutBrain/gut4.png"),
+      loadImage("assets/gutBrain/gut1.png"),
+      loadImage("assets/gutBrain/gut2.png"),
+      loadImage("assets/gutBrain/gut.png"),
+      loadImage("assets/gutBrain/gut3.png"),
+      loadImage("assets/gutBrain/gut4.png"),
     ];
     this.flowerImages = [
-      loadImage("../assets/gutBrain/flowers1.png"),
-      loadImage("../assets/gutBrain/flowers2.png"),
-      loadImage("../assets/gutBrain/flowers3.png"),
-      loadImage("../assets/gutBrain/flowers4.png"),
+      loadImage("assets/gutBrain/flowers1.png"),
+      loadImage("assets/gutBrain/flowers2.png"),
+      loadImage("assets/gutBrain/flowers3.png"),
+      loadImage("assets/gutBrain/flowers4.png"),
     ];
     this.vagusNerveImages = [
-      loadImage("../assets/gutBrain/vagusNerve.png"),
-      loadImage("../assets/gutBrain/vagusNerve1.png"),
-      loadImage("../assets/gutBrain/vagusNerve2.png"),
-      loadImage("../assets/gutBrain/vagusNerve3.jpeg"),
-      loadImage("../assets/gutBrain/vagusNerve4.png"),
-      loadImage("../assets/gutBrain/vagusNerve5.png"),
+      loadImage("assets/gutBrain/vagusNerve.png"),
+      loadImage("assets/gutBrain/vagusNerve1.png"),
+      loadImage("assets/gutBrain/vagusNerve2.png"),
+      loadImage("assets/gutBrain/vagusNerve3.jpeg"),
+      loadImage("assets/gutBrain/vagusNerve4.png"),
+      loadImage("assets/gutBrain/vagusNerve5.png"),
     ];
     this.allImages = [
       ...this.gutImages,
@@ -55,7 +55,7 @@ class GutBrain {
       ...this.flowerImages,
       ...this.vagusNerveImages,
     ];
-    this.mySound = loadSound("../assets/songs/vaporware.mp3");
+    this.mySound = loadSound("assets/songs/vaporware.mp3");
   }
 
   setup() {
@@ -63,7 +63,7 @@ class GutBrain {
     this.posX = 0;
     this.posY = 0;
     this.posXStart = 500;
-    this.posYPlus = 200;
+    this.posYPlus = 150;
     this.imageWidth = 500;
   }
 
@@ -110,12 +110,12 @@ class GutBrain {
         pop();
       }
     } else if (this.index === 3) {
-      image(
-        this.vagusNerveImages[3],
-        windowWidth / 9,
-        this.posYPlus - 35,
-        1000
-      );
+      push();
+      tint(255, 200);
+      image(this.vagusNerveImages[3], 10, this.posYPlus - 15, 850, 600);
+      pop();
+      textSize(15);
+      text("from this article blalbabla", 200, windowHeight - 40);
     } else if (this.index === 4) {
       image(
         this.brainImages[1],
