@@ -25,7 +25,7 @@ class Depressed {
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/subnautica.mp3");
+    this.mySound = loadSound("./assets/songs/subnautica.mp3");
   }
 
   setup() {

@@ -3,7 +3,7 @@ let mySound;
 
 function preload() {
   soundFormats("mp3", "ogg");
-  mySound = loadSound("assets/cyanure.mp3");
+  mySound = loadSound("./assets/cyanure.mp3");
 }
 
 function setup() {

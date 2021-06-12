@@ -20,7 +20,7 @@ let breath2 = new Breath2(chapterManager);
 let constant = gutBrain;
 
 function preload() {
-  print("deploy try");
+  print("deploy try2");
   constant.preload();
 }
 

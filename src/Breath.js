@@ -11,7 +11,7 @@ class Breath {
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/sit.mp3");
+    this.mySound = loadSound("./assets/songs/vaporware.mp3");
   }
 
   setup() {
