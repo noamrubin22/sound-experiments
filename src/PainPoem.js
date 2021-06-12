@@ -21,7 +21,6 @@ class PainPoem {
   preload() {
     // this.mySound = loadSound("assets/songs/unfinished.mp3");
     this.mySound = loadSound("assets/songs/test.wav");
-    print(this.mySound);
     this.soundVisual = new SoundVisual(this.mySound, "darkblue", "orange");
   }
 

@@ -15,10 +15,16 @@ class Introduction {
     background(0);
     fill("gray");
     textSize(18);
-    this.x = windowWidth / 5.5;
+    this.x = windowWidth / 2;
     this.y = 120;
+    this.textWidth = windowWidth / 2;
     this.text.forEach((sentence, index) => {
-      text(sentence, this.x, this.y + 120 * index, windowWidth / 1.5);
+      text(
+        sentence,
+        this.x - this.textWidth / 2,
+        this.y + 120 * index,
+        this.textWidth
+      );
     });
   }
 

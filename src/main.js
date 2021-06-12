@@ -6,18 +6,21 @@ chapterManager.addChapter(new Depressed(chapterManager));
 chapterManager.addChapter(new SciencePoem(chapterManager));
 chapterManager.addChapter(new GutBrain(chapterManager));
 chapterManager.addChapter(new Breath(chapterManager));
+chapterManager.addChapter(new Breath2(chapterManager));
+chapterManager.addChapter(new Psychedelics(chapterManager));
+chapterManager.addChapter(new Music(chapterManager));
+chapterManager.addChapter(new Conclusion(chapterManager));
+chapterManager.addChapter(new References(chapterManager));
 let depressed = new Depressed(chapterManager);
 let sciencePoem = new SciencePoem(chapterManager);
 let gutBrain = new GutBrain(chapterManager);
 let breath = new Breath(chapterManager);
+let breath2 = new Breath2(chapterManager);
+
+let constant = gutBrain;
 
 function preload() {
-  chapterManager.preload();
-  // depressed.preload();
-  // sciencePoem.preload();
-  // gutBrain.preload();
-  // breath.preload();
-  print(chapterManager);
+  constant.preload();
 }
 
 function setup() {
@@ -25,30 +28,20 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  chapterManager.start();
-  // depressed.setup();
-  // sciencePoem.setup();
-  // gutBrain.setup();
-  // breath.setup();
+  // chapterManager.start();
+  constant.setup();
 }
 
 function draw() {
-  chapterManager.draw();
-  // depressed.draw();
-  // sciencePoem.draw();
-  // gutBrain.draw();
-  // breath.draw();
+  constant.draw();
 }
 
 function mousePressed() {
-  chapterManager.mousePressed();
-  // depressed.mousePressed();
-  // sciencePoem.mousePressed();
-  // gutBrain.mousePressed();
-  // breath.mousePressed();
+  constant.mousePressed();
 }
 
 function mouseWheel(event) {
-  chapterManager.currentChapter.mouseWheel(event);
-  print("arrived to breath");
+  if (constant.currentChapter.mouseWheel) {
+    constant.currentChapter.mouseWheel(event);
+  }
 }

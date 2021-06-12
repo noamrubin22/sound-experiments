@@ -11,7 +11,6 @@ class Breath {
   }
 
   preload() {
-    this.image = loadImage("../assets/Breath/circuit.png");
     this.mySound = loadSound("../assets/songs/sit.mp3");
   }
 
@@ -24,15 +23,12 @@ class Breath {
     );
     this.y = windowHeight / 3.5;
     this.textWidth = 500;
-    // this.video = createVideo("../assets/Breath/singingrobot.mp4");
-    // this.video.size(300, 500);
   }
 
   draw() {
     textSize(60);
     background(255);
     fill("black");
-    // noStroke();
     text(this.title, windowWidth / 2, 80);
     push();
     textSize(18);
@@ -44,18 +40,12 @@ class Breath {
         this.textWidth
       );
     });
-
     pop();
     if (this.mySound.isPlaying()) {
       this.soundVisual.circleGraph();
     }
-
-    // text(
-    //   "electricity circuit of the Tibetan Singing Robot",
-    //   windowWidth / 2,
-    //   100
-    // );
   }
+
   mouseWheel(event) {
     if (event.deltaY > 0) {
       this.y -= 8;
@@ -68,11 +58,9 @@ class Breath {
   }
 
   mousePressed() {
-    if (!this.mySound.isPlaying()) {
-      this.mySound.loop();
+    if (this.mySound.isPlaying()) {
+      this.chapterManager.next();
+      this.mySound.fade(0, 1.5);
     }
-    // } else {
-    //   this.chapterManager.next();
-    //   this.mySound.fade(0, 1.5);
   }
 }

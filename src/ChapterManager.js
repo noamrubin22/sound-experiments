@@ -29,7 +29,7 @@ class ChapterManager {
   }
 
   mouseWheel() {
-    if (this.currentChapter === new Breath()) {
+    if (this.currentChapter.mouseWheel) {
       this.currentChapter.mouseWheel();
     }
   }

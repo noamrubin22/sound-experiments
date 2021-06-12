@@ -1,56 +1,27 @@
 class Depressed {
-  constructor() {
+  constructor(chapterManager) {
     this.startText =
-      "the world was already facing a mental health crisis before the global pandemic hit us in 2019.¹ the impact of COVID-19 only increased our need for new solutions facing a pandemic of mental health.² the future health of individuals and societies depends upon improving the efficacy of mental health treatment and making sure access will reach those in need.";
+      "the world was already suffering from a mental health crisis before the global pandemic hit us in 2019(1). we are facing a pandemic of mental health, and the impact of COVID-19 has only increased our need for new solutions.² mental health treatment needs to be improved and reach those in need, for the future health of individuals and societies to be secured.";
     this.text = [
-      "ewe",
-      "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰",
-      "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰",
-      "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰",
-      "each year, 1 in 5 adults is experiencing mental illness⁵",
-      "each year, 1 in 5 adults is experiencing mental illness⁵",
-      "the lockdowns have led to increased social isolation, anxiety, depression and PTSD",
-      "the lockdowns have led to increased social isolation, anxiety, depression and PTSD",
-      "in 93% of countries worldwide, COVID-19 has disrupted or stopped mental health services.",
-      "in 93% of countries worldwide, COVID-19 has disrupted or stopped mental health services.",
-      "in 93% of countries worldwide, COVID-19 has disrupted or stopped mental health services.",
-      "the growing mental health crisis is estimated to cost the world €16 trillion by 2030",
-      "the growing mental health crisis is estimated to cost the world €16 trillion by 2030",
-      "the growing mental health crisis is estimated to cost the world €16 trillion by 2030",
-      "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely",
-      "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely",
-      "people with mood disorders are at higher risk of developing long term medical conditions and die prematurely",
-      "in recent years, the amount of people dieying from opiod overdose has increased dramatically",
-      "in recent years, the amount of people dieying from opiod overdose has increased dramatically",
-      "in recent years, the amount of people dieying from opiod overdose has increased dramatically",
-      "every 40 seconds, a person dies by suicied¹¹",
-      "every 40 seconds, a person dies by suicied¹¹",
-      "the efficacy of mental health treatment has not been improved for the past 70 years",
-      "the efficacy of mental health treatment has not been improved for the past 70 years",
-      "66% of patients remain having symptoms after treatment⁶",
-      "66% of patients remain having symptoms after treatment⁶",
-      "30% of patients do not respond to any treatment at all⁷",
-      "30% of patients do not respond to any treatment at all⁷",
+      "m every 40 seconds, a person dies by suicied¹¹",
+      "the amount of people dieying from opiod overdose has increased dramatically in the past years",
+      "each year, 1 in 5 is experiencing mental health illness",
+      "the lockdowns have increased the amount of people suffering from anxiety, depression and PTSD, due to social isolation",
+      "in 93% of the countries, COVID-19 has disrupted or stopped mental health services.",
+      "it is estimated that by 2030 €16 trillion will be needed to cover the costs of the growing mental health crisis",
+      "mental health disorders are influencing our physical state",
+      "they are among the leading causes of disability and long term health conditions causing people that suffer from them to sometimes die prematurely",
+      "crazy enough, the efficacy of mental health treatment did not improve for the past 70 years",
+      "30% of people that is suffering from depression is not responding to any treatment at all,⁷",
+      "66% may respond but are suffering from symptoms that keep coming back",
+      "the physical health was our main focus for such a long time..",
+      "could it be that we forgot how our mental and emotional state is connected to our physical?",
+      "we need to evolve on all fonts to reach an healthy society",
       "we need to think in different ways to find a solution",
-      "we need to think in different ways to find a solution",
-      "",
-    ];
-    this.text1 = [
-      "1",
-      "mental health disorders are among the leading causes of long term health conditions and disability worldwide¹⁰",
-      "3",
-      "4",
-      "4",
-      "5",
-      "5",
-      "6",
-      "7",
-      "7",
-      "8",
-      "8",
-      "9",
+      " ",
     ];
     this.textEnd = false;
+    this.chapterManager = chapterManager;
   }
 
   preload() {
@@ -65,35 +36,41 @@ class Depressed {
     this.mode = 0;
     this.soundVisual = new SoundVisual(this.mySound, "black", "black");
     this.fft = new p5.FFT();
-    this.peakDetect = new p5.PeakDetect(20, 2000, 0.69);
+    this.peakDetect = new p5.PeakDetect(700, 1500, 0.69);
+
+    this.allWords = [];
+    this.text.map((sentence) => {
+      this.words = sentence.split(" ");
+      this.words.push("");
+      this.allWords.push(...this.words);
+    });
+
+    this.mySound.onended(() => {
+      this.chapterManager.next();
+    });
   }
 
   draw() {
     background(255);
     fill(0);
-    if (!this.mySound.isPlaying()) {
-      this.mySound.play();
-      // this.mySound.rate(5);
-    }
+    // if (!this.mySound.isPlaying()) {
+    //   this.mySound.play();
+    // }
+    this.mySound.rate(2);
     this.fft.analyze();
     this.peakDetect.update(this.fft);
     this.soundVisual.displayWavelength("horizontal", 1.5, 6);
     if (this.mode === 0) {
       textSize(111);
       fill(0);
-      this.xStartText = this.xStartText - 10;
+      this.xStartText = this.xStartText - 9;
       text(this.startText, this.xStartText, this.yStartText);
     } else {
       textSize(50);
-      noStroke();
-      this.text.map((sentence, index) => {
-        if (sentence === "") {
-          this.textEnd = true;
-          print("text eneded is true");
-        }
-
+      fill("black");
+      this.allWords.map((word, index) => {
         text(
-          sentence,
+          word,
           (index + 1) * windowWidth - this.x,
           this.y / 2.5,
           windowWidth / 2
@@ -107,14 +84,9 @@ class Depressed {
     }
   }
   mousePressed() {
-    // if (!this.mySound.isPlaying()) {
-    //   this.mySound.play();
-    //   // this.mySound.rate(5);
-    // }
-    // if (this.textEnd) {
-    print("text ended");
-    this.mySound.stop();
-    chapterManager.next();
-    // }
+    if (!this.mySound.isPlaying()) {
+      // this.mySound.play();
+    }
+    this.chapterManager.next();
   }
 }

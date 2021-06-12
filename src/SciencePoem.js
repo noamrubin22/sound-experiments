@@ -1,6 +1,6 @@
 class SciencePoem {
   constructor(chapterManager) {
-    this.text = [
+    this.poem = [
       "to agree that we don't know",
       "isn't that the beauty of science?",
       "i am trying to understand",
@@ -13,6 +13,7 @@ class SciencePoem {
       "",
       "but i am just curious",
     ];
+    this.clickToContinue = ["", "", "", "", "click to continue"];
     this.chapterManager = chapterManager;
   }
 
@@ -25,6 +26,7 @@ class SciencePoem {
     fill("gray");
     textSize(20);
     textAlign(CENTER, CENTER);
+    this.text = [...this.poem, ...this.clickToContinue];
     this.y = 300;
     this.x = windowWidth / 2;
   }
