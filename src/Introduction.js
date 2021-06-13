@@ -22,7 +22,7 @@ class Introduction {
       text(
         sentence,
         this.x - this.textWidth / 2,
-        this.y + 120 * index,
+        this.y + 180 * index,
         this.textWidth
       );
     });

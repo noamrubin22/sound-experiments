@@ -9,11 +9,11 @@ class Breath2 {
   }
 
   preload() {
-    this.image = loadImage("./assets/Breath/circuit.png");
+    this.image = loadImage("../assets/Breath/circuit.png");
   }
 
   setup() {
-    this.video = createVideo("./assets/Breath/singingrobot.mp4");
+    this.video = createVideo("../assets/Breath/singingrobot.mp4");
     this.video.size(400, 600);
     background(255);
     textSize(60);

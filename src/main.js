@@ -6,7 +6,6 @@ chapterManager.addChapter(new Depressed(chapterManager));
 chapterManager.addChapter(new SciencePoem(chapterManager));
 chapterManager.addChapter(new GutBrain(chapterManager));
 chapterManager.addChapter(new Breath(chapterManager));
-chapterManager.addChapter(new Breath2(chapterManager));
 chapterManager.addChapter(new Psychedelics(chapterManager));
 chapterManager.addChapter(new Music(chapterManager));
 chapterManager.addChapter(new Conclusion(chapterManager));
@@ -16,8 +15,9 @@ let sciencePoem = new SciencePoem(chapterManager);
 let gutBrain = new GutBrain(chapterManager);
 let breath = new Breath(chapterManager);
 let breath2 = new Breath2(chapterManager);
+let ref = new References(chapterManager);
 
-let constant = breath;
+let constant = ref;
 
 function preload() {
   print("deploy try2");
@@ -29,8 +29,8 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  // chapterManager.start();
-  constant.setup();
+  chapterManager.start();
+  // constant.setup();
 }
 
 function draw() {
@@ -42,7 +42,7 @@ function mousePressed() {
 }
 
 function mouseWheel(event) {
-  if (constant) {
+  if (constant && event) {
     if (constant.mouseWheel) {
       constant.mouseWheel(event);
     }

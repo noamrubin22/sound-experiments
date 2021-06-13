@@ -56,7 +56,6 @@ class Breath {
   }
 
   mouseWheel(event) {
-    print("mousewheel");
     if (event.deltaY > 0) {
       this.y -= 8;
     } else {

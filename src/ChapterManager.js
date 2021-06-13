@@ -28,9 +28,11 @@ class ChapterManager {
     }
   }
 
-  mouseWheel() {
-    if (this.currentChapter.mouseWheel) {
-      this.currentChapter.mouseWheel();
+  mouseWheel(event) {
+    if (this.currentChapter) {
+      if (this.currentChapter.mouseWheel) {
+        this.currentChapter.mouseWheel(event);
+      }
     }
   }
 
