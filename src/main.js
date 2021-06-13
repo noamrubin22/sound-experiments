@@ -17,7 +17,7 @@ let gutBrain = new GutBrain(chapterManager);
 let breath = new Breath(chapterManager);
 let breath2 = new Breath2(chapterManager);
 
-let constant = gutBrain;
+let constant = breath;
 
 function preload() {
   print("deploy try2");
@@ -42,7 +42,9 @@ function mousePressed() {
 }
 
 function mouseWheel(event) {
-  if (constant.currentChapter.mouseWheel) {
-    constant.currentChapter.mouseWheel(event);
+  if (constant) {
+    if (constant.mouseWheel) {
+      constant.mouseWheel(event);
+    }
   }
 }
