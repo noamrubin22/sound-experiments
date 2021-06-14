@@ -97,11 +97,8 @@ class References {
     clearTimeout(this.isScrolling);
 
     // pause music on stop scroll
-    this.isScrolling = setTimeout(function () {
-      // this.mySound.fade(0, 0.6);
-      // this.mySound.pause();
-      print(this.mySound);
-      print("music should pause");
+    this.isScrolling = setTimeout(() => {
+      this.mySound.pause();
     }, 1000);
 
     this.pos += event.delta;

@@ -55,7 +55,7 @@ class GutBrain {
       ...this.flowerImages,
       ...this.vagusNerveImages,
     ];
-    this.mySound = loadSound("../assets/songs/vaporware.mp3");
+    this.mySound = loadSound("assets/songs/vaporware.mp3");
   }
 
   setup() {
