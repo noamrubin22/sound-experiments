@@ -6,6 +6,10 @@ class References {
       title: "the gut- brain connection",
       refs: ["blashflajlfjaa", "kajhflkahskfhaskfh", "ashfkajsf"],
     };
+    this.refIntro = {
+      title: "introduction",
+      refs: ["blashflajlfjaa", "kajhflkahskfhaskfh", "ashfkajsf"],
+    };
     this.refBreath = {
       title: "the breath",
       refs: [
@@ -28,10 +32,16 @@ class References {
     };
     this.goodbye = {
       title: "thank for your attention",
-      refs: ["keep spreading the love", "www.noam-rubin.com"],
+      refs: [
+        "this project was created in p5.js",
+        "keep spreading the love",
+        "take care of yourself and each other",
+        "www.noam-rubin.com",
+      ],
     };
     this.references = [
       this.refGutBrain,
+      this.refIntro,
       this.refBreath,
       this.refPsychedelics,
       this.refMusic,
@@ -42,7 +52,7 @@ class References {
   }
 
   preload() {
-    this.mySound = loadSound("../assets/songs/waterlife.mp3");
+    this.mySound = loadSound("assets/songs/waterlife.mp3");
   }
 
   setup() {
@@ -51,7 +61,7 @@ class References {
 
   draw() {
     background(13);
-    fill(230);
+    fill("gray");
     textSize(60);
     textAlign(CENTER, CENTER);
     text(this.title, windowWidth / 2, 80);

@@ -23,31 +23,31 @@ class GutBrain {
 
   preload() {
     this.brainImages = [
-      loadImage("../assets/gutBrain/brainScanWhole.png"),
-      loadImage("../assets/gutBrain/brainScan.png"),
-      loadImage("../assets/gutBrain/brainScan1.png"),
-      loadImage("../assets/gutBrain/brainWhole.png"),
+      loadImage("assets/gutBrain/brainScanWhole.png"),
+      loadImage("assets/gutBrain/brainScan.png"),
+      loadImage("assets/gutBrain/brainScan1.png"),
+      loadImage("assets/gutBrain/brainWhole.png"),
     ];
     this.gutImages = [
-      loadImage("../assets/gutBrain/gut1.png"),
-      loadImage("../assets/gutBrain/gut2.png"),
-      loadImage("../assets/gutBrain/gut.png"),
-      loadImage("../assets/gutBrain/gut3.png"),
-      loadImage("../assets/gutBrain/gut4.png"),
+      loadImage("assets/gutBrain/gut1.png"),
+      loadImage("assets/gutBrain/gut2.png"),
+      loadImage("assets/gutBrain/gut.png"),
+      loadImage("assets/gutBrain/gut3.png"),
+      loadImage("assets/gutBrain/gut4.png"),
     ];
     this.flowerImages = [
-      loadImage("../assets/gutBrain/flowers1.png"),
-      loadImage("../assets/gutBrain/flowers2.png"),
-      loadImage("../assets/gutBrain/flowers3.png"),
-      loadImage("../assets/gutBrain/flowers4.png"),
+      loadImage("assets/gutBrain/flowers1.png"),
+      loadImage("assets/gutBrain/flowers2.png"),
+      loadImage("assets/gutBrain/flowers3.png"),
+      loadImage("assets/gutBrain/flowers4.png"),
     ];
     this.vagusNerveImages = [
-      loadImage("../assets/gutBrain/vagusNerve.png"),
-      loadImage("../assets/gutBrain/vagusNerve1.png"),
-      loadImage("../assets/gutBrain/vagusNerve2.png"),
-      loadImage("../assets/gutBrain/vagusNerve3.jpeg"),
-      loadImage("../assets/gutBrain/vagusNerve4.png"),
-      loadImage("../assets/gutBrain/vagusNerve5.png"),
+      loadImage("assets/gutBrain/vagusNerve.png"),
+      loadImage("assets/gutBrain/vagusNerve1.png"),
+      loadImage("assets/gutBrain/vagusNerve2.png"),
+      loadImage("assets/gutBrain/vagusNerve3.jpeg"),
+      loadImage("assets/gutBrain/vagusNerve4.png"),
+      loadImage("assets/gutBrain/vagusNerve5.png"),
     ];
     this.allImages = [
       ...this.gutImages,
@@ -68,7 +68,7 @@ class GutBrain {
   }
 
   draw() {
-    background(230);
+    background(255);
     textSize(60);
     fill(10);
     text(this.title, windowWidth / 2, 80);
@@ -87,7 +87,6 @@ class GutBrain {
     }
 
     // image display
-
     if (this.index < 3) {
       image(
         this.gutImages[0],

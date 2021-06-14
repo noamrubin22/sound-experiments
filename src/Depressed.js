@@ -25,7 +25,7 @@ class Depressed {
   }
 
   preload() {
-    this.mySound = loadSound("../assets/songs/subnautica.mp3");
+    this.mySound = loadSound("assets/songs/subnautica.mp3");
   }
 
   setup() {
@@ -53,10 +53,10 @@ class Depressed {
   draw() {
     background(255);
     fill(0);
-    // if (!this.mySound.isPlaying()) {
-    //   this.mySound.play();
-    // }
-    this.mySound.rate(2);
+    if (!this.mySound.isPlaying()) {
+      this.mySound.play();
+    }
+    // this.mySound.rate(2);
     this.fft.analyze();
     this.peakDetect.update(this.fft);
     this.soundVisual.displayWavelength("horizontal", 1.5, 6);
@@ -84,9 +84,6 @@ class Depressed {
     }
   }
   mousePressed() {
-    if (!this.mySound.isPlaying()) {
-      // this.mySound.play();
-    }
     this.chapterManager.next();
   }
 }

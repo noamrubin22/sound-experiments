@@ -17,7 +17,7 @@ let breath = new Breath(chapterManager);
 let breath2 = new Breath2(chapterManager);
 let ref = new References(chapterManager);
 
-let constant = ref;
+let constant = chapterManager;
 
 function preload() {
   print("deploy try2");
