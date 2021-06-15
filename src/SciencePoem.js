@@ -13,7 +13,7 @@ class SciencePoem {
       "",
       "but i am just curious",
     ];
-    this.clickToContinue = ["", "", "", "", "click to continue"];
+    this.clickToContinue = ["", "", "", "", "", "", "click to continue"];
     this.chapterManager = chapterManager;
   }
 

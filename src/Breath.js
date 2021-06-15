@@ -29,7 +29,7 @@ class Breath {
       this.mySound,
       "darkgreen",
       "orange",
-      "gray"
+      "orange"
     );
     this.y = windowHeight / 3.5;
     this.textWidth = 500;

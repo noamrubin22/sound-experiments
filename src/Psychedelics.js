@@ -42,10 +42,9 @@ class Psychedelics {
         }
         this.counter++;
         this.tree[i].finished = true;
+      } else {
+        this.chapterManager.next();
       }
-      // } else {
-      //   this.chapterManager.next();
-      // }
     }
   }
 }

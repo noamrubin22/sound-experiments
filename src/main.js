@@ -17,7 +17,7 @@ let breath = new Breath(chapterManager);
 let ref = new References(chapterManager);
 let psych = new Psychedelics(chapterManager);
 
-let constant = gutBrain;
+let constant = chapterManager;
 
 function preload() {
   constant.preload();
@@ -28,8 +28,8 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  // chapterManager.start();
-  constant.setup();
+  chapterManager.start();
+  // constant.setup();
 }
 
 function draw() {
