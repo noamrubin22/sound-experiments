@@ -18,8 +18,8 @@ class SciencePoem {
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/ecrusader.mp3");
-    this.soundVisual = new SoundVisual(this.mySound, "darkgreen", "purple");
+    this.mySound = loadSound("assets/songs/secondmistake.mp3");
+    this.soundVisual = new SoundVisual(this.mySound, "green", "purple");
   }
 
   setup() {
@@ -36,6 +36,8 @@ class SciencePoem {
       this.mySound.play();
     }
     background(255);
+    fill("black");
+    this.soundVisual.displayFrequency("vertical", 800, 200, -300);
     this.text.map((sentence, index) => {
       text(sentence, this.x, this.y + 100 * index);
     });

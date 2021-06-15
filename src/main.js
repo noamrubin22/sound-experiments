@@ -11,20 +11,9 @@ chapterManager.addChapter(new Music(chapterManager));
 chapterManager.addChapter(new Conclusion(chapterManager));
 chapterManager.addChapter(new MindPoem(chapterManager));
 chapterManager.addChapter(new References(chapterManager));
-let depressed = new Depressed(chapterManager);
-let sciencePoem = new SciencePoem(chapterManager);
-let gutBrain = new GutBrain(chapterManager);
-let breath = new Breath(chapterManager);
-let ref = new References(chapterManager);
-let psych = new Psychedelics(chapterManager);
-let music = new Music(chapterManager);
-let conclusion = new Conclusion(chapterManager);
-let mind = new MindPoem(chapterManager);
-
-let constant = ref;
 
 function preload() {
-  constant.preload();
+  chapterManager.preload();
 }
 
 function setup() {
@@ -32,22 +21,21 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  // chapterManager.start();
-  constant.setup();
+  chapterManager.start();
 }
 
 function draw() {
-  constant.draw();
+  chapterManager.draw();
 }
 
 function mousePressed() {
-  constant.mousePressed();
+  chapterManager.mousePressed();
 }
 
 function mouseWheel(event) {
-  if (constant && event) {
-    if (constant.mouseWheel) {
-      constant.mouseWheel(event);
+  if (chapterManager && event) {
+    if (chapterManager.mouseWheel) {
+      chapterManager.mouseWheel(event);
     }
   }
 }

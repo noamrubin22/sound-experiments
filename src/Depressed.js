@@ -87,8 +87,6 @@ class Depressed {
     if (!this.mySound.isPlaying()) {
       this.mySound.play();
     }
-    this.mySound.fade(0, 1); // remove this
-    this.chapterManager.next(); // remove this
     if (this.counter >= 5000) {
       this.chapterManager.next();
       this.mySound.fade(0, 1);

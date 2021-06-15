@@ -117,7 +117,7 @@ class References {
       refs: [
         "Pain: nthng - Unfinished ",
         "The problem: nthng - Subnautica",
-        "The beauty of science: nthng - E Crusader",
+        "The beauty of science: AYYA - Second Mistake",
         "The Gut-Brain axis: Donato Dozzy - Vaporware",
         "The Breath: Joshua Sam Miller - Sit",
         "Psychedelics: nthng - Wave Return",
@@ -170,7 +170,7 @@ class References {
       }
       this.titlePosY = this.y + index * multiply;
       text(topic.title, windowWidth / 2, this.titlePosY);
-      textSize(15);
+      textSize(16);
       topic.refs.forEach((ref, index) => {
         return text(
           ref,
@@ -185,9 +185,9 @@ class References {
   mouseWheel(event) {
     //  move text
     if (event.deltaY > 0) {
-      this.y -= 40;
+      this.y -= 20;
     } else {
-      this.y += 30;
+      this.y += 20;
     }
 
     //  play music
@@ -207,7 +207,6 @@ class References {
   }
 
   mousePressed() {
-    // this.chapterManager.next();
-    print("should stop");
+    print("thanks");
   }
 }

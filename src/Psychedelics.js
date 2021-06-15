@@ -31,6 +31,7 @@ class Psychedelics {
     this.a = createVector(windowWidth / 2, windowHeight);
     this.b = createVector(windowWidth / 2, windowHeight - 100);
     this.root = new Branch(this.a, this.b);
+    print(this.root);
     this.tree[0] = this.root;
     this.textWidth = 600;
     this.x = (windowWidth - this.textWidth) / 2;
@@ -46,9 +47,6 @@ class Psychedelics {
       this.mySound.play();
     }
 
-    for (let i = 0; i < this.tree.length; i++) {
-      this.tree[i].show();
-    }
     push();
     textSize(20);
     this.text.map((sentence, index) => {
@@ -64,14 +62,6 @@ class Psychedelics {
     if (this.counter >= this.text.length) {
       this.mySound.fade(0, 1.5);
       this.chapterManager.next();
-    }
-
-    for (let i = this.tree.length - 1; i >= 0; i--) {
-      if (!this.tree[i].finished) {
-        this.tree.push(this.tree[i].branchA());
-        this.tree.push(this.tree[i].branchB());
-      }
-      this.tree[i].finished = true;
     }
   }
 }

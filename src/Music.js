@@ -34,7 +34,9 @@ class Music {
       this.mySound.play();
     }
     this.fft.analyze();
+    push();
     this.soundVisual.displayWavelength("vertical", 2, 3);
+    pop();
     fill(0);
     textSize(60);
     text(this.title, windowWidth / 2, 80);

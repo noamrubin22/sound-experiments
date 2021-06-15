@@ -11,7 +11,7 @@ class SoundVisual {
     this.volhistory = [];
   }
 
-  displayFrequency(position) {
+  displayFrequency(position, substractWidth, sensitivity, location) {
     this.spectrum = this.fft.analyze();
     noStroke();
     fill(this.frequencyColor);
@@ -19,7 +19,7 @@ class SoundVisual {
       let x = map(i, 0, this.spectrum.length / 1.9, 0, width);
       let h = -height + map(this.spectrum[i], 0, 255, height, 0);
       if (position === "vertical") {
-        rect(height, x, width / 100, h * 2);
+        rect(height + location, x - sensitivity, width / substractWidth, h);
       } else {
         rect(x, height, width / this.spectrum.length, h * 2);
       }
@@ -48,8 +48,7 @@ class SoundVisual {
     let vol = this.amplitude.getLevel();
     this.volhistory.push(vol);
     stroke(this.circleGraphColor);
-    // noFill();
-    fill("purple");
+    fill("coral");
 
     translate(width / 2, height / 2);
     beginShape();

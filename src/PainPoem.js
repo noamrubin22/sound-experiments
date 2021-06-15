@@ -19,8 +19,7 @@ class PainPoem {
   }
 
   preload() {
-    // this.mySound = loadSound("assets/songs/unfinished.mp3");
-    this.mySound = loadSound("assets/songs/test.wav");
+    this.mySound = loadSound("assets/songs/unfinished.mp3");
     this.soundVisual = new SoundVisual(this.mySound, "darkblue", "orange");
   }
 
@@ -47,7 +46,7 @@ class PainPoem {
     if (this.mySound.isPlaying()) {
       this._remove();
       this.soundVisual.displayWavelength("horizontal", 2.5, 1);
-      this.soundVisual.displayFrequency("horizontal");
+      this.soundVisual.displayFrequency("horizontal", 400);
     }
   }
 
