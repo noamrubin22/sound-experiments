@@ -28,7 +28,17 @@ class References {
     };
     this.songs = {
       title: "songs",
-      refs: ["nthng -unfinished ", "kajhflkahskfhaskfh", "ashfkajsf"],
+      refs: [
+        "Pain: nthng - Unfinished ",
+        "The problem: nthng - Subnautica",
+        "The beauty of science: nthng - E Crusader",
+        "The Gut-Brain axis: Donato Dozzy - Vaporware",
+        "The Breath: Joshua Sam Miller - Sit",
+        "Psychedelics:",
+        "Music:",
+        "Discussion:",
+        "References: Nicolas Jaar - Hello, chain",
+      ],
     };
     this.goodbye = {
       title: "thank for your attention",
@@ -52,7 +62,7 @@ class References {
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/waterlife.mp3");
+    this.mySound = loadSound("assets/songs/hellochain-cropped.mp3");
   }
 
   setup() {
@@ -91,7 +101,6 @@ class References {
 
     //  play music
     if (!this.mySound.isPlaying()) {
-      print("sound should play");
       this.mySound.play();
     }
     clearTimeout(this.isScrolling);

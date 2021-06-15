@@ -24,6 +24,7 @@ class Breath {
   }
 
   setup() {
+    textAlign(CENTER, CENTER);
     this.soundVisual = new SoundVisual(
       this.mySound,
       "darkgreen",

@@ -14,13 +14,12 @@ let depressed = new Depressed(chapterManager);
 let sciencePoem = new SciencePoem(chapterManager);
 let gutBrain = new GutBrain(chapterManager);
 let breath = new Breath(chapterManager);
-let breath2 = new Breath2(chapterManager);
 let ref = new References(chapterManager);
+let psych = new Psychedelics(chapterManager);
 
-let constant = chapterManager;
+let constant = gutBrain;
 
 function preload() {
-  print("deploy try2");
   constant.preload();
 }
 
@@ -29,8 +28,8 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  chapterManager.start();
-  // constant.setup();
+  // chapterManager.start();
+  constant.setup();
 }
 
 function draw() {

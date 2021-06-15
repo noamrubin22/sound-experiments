@@ -56,7 +56,6 @@ class Depressed {
     if (!this.mySound.isPlaying()) {
       this.mySound.play();
     }
-    // this.mySound.rate(2);
     this.fft.analyze();
     this.peakDetect.update(this.fft);
     this.soundVisual.displayWavelength("horizontal", 1.5, 6);
@@ -85,5 +84,6 @@ class Depressed {
   }
   mousePressed() {
     this.chapterManager.next();
+    this.mySound.fade(0, 1);
   }
 }

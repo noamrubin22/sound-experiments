@@ -18,12 +18,12 @@ class SciencePoem {
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/softsea.mp3");
+    this.mySound = loadSound("assets/songs/ecrusader.mp3");
     this.soundVisual = new SoundVisual(this.mySound, "darkgreen", "purple");
   }
 
   setup() {
-    fill("gray");
+    fill("black");
     textSize(20);
     textAlign(CENTER, CENTER);
     this.text = [...this.poem, ...this.clickToContinue];
