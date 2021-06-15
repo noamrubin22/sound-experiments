@@ -18,7 +18,6 @@ class Breath {
       "Dr. Grof  was a pioneer in LSD research beginning in the 1950s. In 1967, he worked at Johns Hopkins and the Maryland Psychiatric Research Center in the US, where the last government-funded psychedelic research programs were in the 1970s. After research funding was not available anymore, Grof continued his consciousness studies and came up with this breathing technique, together with his wife.",
     ];
     this.chapterManager = chapterManager;
-    this.index = 0;
   }
 
   preload() {

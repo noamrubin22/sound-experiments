@@ -25,7 +25,19 @@ class References {
     };
     this.refIntro = {
       title: "introduction",
-      refs: ["blashflajlfjaa", "kajhflkahskfhaskfh", "ashfkajsf"],
+      refs: [
+        "1) Mental Health Foundation. Fundamental Facts About Mental Health. Mental Health Foundation: London. (2016)",
+        "2) Salari, N., Hosseinian-Far, A., Jalali, R., Vaisi-Raygani, A., Rasoulpoor, S., Mohammadi, M., ... & Khaledi-Paveh, B. (2020). Prevalence of stress, anxiety, depression among the general population during the COVID-19 pandemic: a systematic review and meta-analysis. Globalization and health, 16(1), 1-11.",
+        "3) WHO. WHO Suicide in the World. WHO (2019).",
+        "4) Bell, A., Bennett, A. S., Jones, T. S., Doe-Simkins, M., & Williams, L. D. (2018). Amount of naloxone used to reverse opioid overdoses outside of medical practice in a city with increasing illicitly manufactured fentanyl in illicit drug supply. Substance abuse.",
+        "5) National Institute of Mental Health. Mental Illness. NIMH (2019)",
+        "6) WHO. WHO Depression fact sheet. WHO (2017)",
+        "7) WHO | Global status report on noncommunicable diseases 2010. WHO(2011). doi:/entity/nmh/publications/ncd_report2010/en/index.html",
+        `8)World Health Organization. "The impact of COVID-19 on mental, neurological and substance use services: results of a rapid assessment." (2020).`,
+        "9) Holtzheimer PE, Mayberg HS. Stuck in a rut: rethinking depression and its treatment. Trends in neurosciences. (2011) Jan 1;34(1):1-9",
+        `10) Trivedi, M. H. "Rush aJ, Wisniewski SR, Nierenberg Aa, Warden D, Ritz L, Norquist G, Howland RH, Lebowitz B, McGrath PJ et al: Evaluation of outcomes with citalopram for depression using measurement-based care in STAR* D: implications for clinical practice." The American journal of psychiatry 163 (2006): 28-40.`,
+        `11) Al-Harbi, Khalid Saad. "Treatment-resistant depression: therapeutic trends, challenges, and future directions." Patient preference and adherence 6 (2012): 369.`,
+      ],
     };
     this.refBreath = {
       title: "the breath",
@@ -35,7 +47,7 @@ class References {
         "3) hu I-H, Wu W-L, Lin I-M, Chang Y-K, Lin Y-J, Yang P-C. Effects of yoga on heart rate variability and depressive symptoms in women: a randomized controlled trial. J Altern Complement Med (2017) 23:310–6. doi:10.1089/acm.2016.0135",
         "4) Streeter CC, Gerbarg PL, Saper RB, Ciraulo DA, Brown RP. Effects of yoga on the autonomic nervous system, gamma-aminobutyric-acid, and allostasis in epilepsy, depression, and post-traumatic stress disorder. Med Hypotheses (2012) 78:571–9. doi:10.1016/j.mehy.2012.01.021",
         "5) Zope S, Zope R. Sudarshan Kriya yoga: breathing for health. Int J Yoga (2013) 6:4–10. doi:10.4103/0973-6131.105935",
-        "Sharma A, Barrett MS, Cucchiara AJ, Gooneratne NS, Thase ME. A breathing-based meditation intervention for patients with major depressive disorder following inadequate response to antidepressants: a randomized pilot study. J Clin Psychiatry (2017) 78:e59–63. doi:10.4088/JCP.16m10819",
+        "6) Sharma A, Barrett MS, Cucchiara AJ, Gooneratne NS, Thase ME. A breathing-based meditation intervention for patients with major depressive disorder following inadequate response to antidepressants: a randomized pilot study. J Clin Psychiatry (2017) 78:e59–63. doi:10.4088/JCP.16m10819",
         "7) Mark E Kunik, Kent Roundy, Connie Veazey, Julianne Souchek, Peter Richardson, Nelda P Wray, Melinda A Stanley, Surprisingly High Prevalence of Anxiety and Depression in Chronic Breathing Disorders,Chest,Volume 127, Issue 4,2005,Pages 1205-1211, ISSN 0012-3692,",
         "8) Kox, M., van Eijk, L. T., Zwaag, J., van den Wildenberg, J., Sweep, F. C., van der Hoeven, J. G., & Pickkers, P. (2014). Voluntary activation of the sympathetic nervous system and attenuation of the innate immune response in humans. Proceedings of the National Academy of Sciences, 111(20), 7379-7384.",
         "9) Grof S. The Adventure of Self-Discovery. Albany, NY: State University of New York Press, 1988.",
@@ -106,7 +118,7 @@ class References {
         "The Gut-Brain axis: Donato Dozzy - Vaporware",
         "The Breath: Joshua Sam Miller - Sit",
         "Psychedelics:",
-        "Music:",
+        "Sound:",
         "Discussion:",
         "References: Nicolas Jaar - Hello, chain",
       ],
@@ -140,7 +152,7 @@ class References {
   }
 
   draw() {
-    background(13);
+    background(0);
     fill("gray");
     textSize(60);
     textAlign(CENTER, CENTER);
@@ -179,7 +191,7 @@ class References {
     // pause music on stop scroll
     this.isScrolling = setTimeout(() => {
       // this.mySound.pause();
-      this.mySound.setVolume(0.1);
+      this.mySound.setVolume(0.8);
     }, 1000);
 
     this.pos += event.delta;

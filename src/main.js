@@ -9,6 +9,7 @@ chapterManager.addChapter(new Breath(chapterManager));
 chapterManager.addChapter(new Psychedelics(chapterManager));
 chapterManager.addChapter(new Music(chapterManager));
 chapterManager.addChapter(new Conclusion(chapterManager));
+chapterManager.addChapter(new MindPoem(chapterManager));
 chapterManager.addChapter(new References(chapterManager));
 let depressed = new Depressed(chapterManager);
 let sciencePoem = new SciencePoem(chapterManager);
@@ -16,6 +17,9 @@ let gutBrain = new GutBrain(chapterManager);
 let breath = new Breath(chapterManager);
 let ref = new References(chapterManager);
 let psych = new Psychedelics(chapterManager);
+let music = new Music(chapterManager);
+let conclusion = new Conclusion(chapterManager);
+let mind = new MindPoem(chapterManager);
 
 let constant = chapterManager;
 
