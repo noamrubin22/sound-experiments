@@ -21,7 +21,7 @@ let music = new Music(chapterManager);
 let conclusion = new Conclusion(chapterManager);
 let mind = new MindPoem(chapterManager);
 
-let constant = chapterManager;
+let constant = music;
 
 function preload() {
   constant.preload();
@@ -32,8 +32,8 @@ function setup() {
   background("white");
   textAlign(CENTER, CENTER);
   textFont("Roboto Mono, monospace");
-  chapterManager.start();
-  // constant.setup();
+  // chapterManager.start();
+  constant.setup();
 }
 
 function draw() {
