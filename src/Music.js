@@ -8,8 +8,8 @@ class Music {
       "Since music seems to play a central role in experiencing mental health benefits from psychedelic experiences (1), it is not surprising that music by itself can be used as a therapy. In fact, music can be used to induce an altered state of consciousness.",
       "Studies show that during music therapy, the significance of a monotonous repetition of sounds is crucial to induce an altered state of consciousness and the duration of sounds to be decisive for the effects.",
       "The main effect of the sounds is the induction of a trance that reduces the noise of thought and more or less removes the normal and pathological frame of beliefs and references. By changing the focus of attention, the contents of the memory can be emptied, which is allowing new information to enter(2).",
-      "I would have to do more research to understand the underlying mechanisms of music, and I am wondering if they are similar to the states I discussed before.",
-      "What I do know, is that it is influencing me",
+      "I am wondering if the underlying mechanisms of music are similar to the ones I have discussed before, and how a state of trance fits in the picture. What I do know, is that music is influencing me and that is a huge part support for humanity",
+      "I would have to do more research to understand the exact mechanisms of music and how it is influencing us",
     ];
     this.index = 0;
   }
@@ -49,6 +49,7 @@ class Music {
     this.x -= windowWidth;
     this.index++;
     if (this.index == this.text.length + 1) {
+      this.mySound.fade(0, 1.5);
       this.chapterManager.next();
     }
   }

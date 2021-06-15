@@ -30,7 +30,7 @@ class Breath {
       this.mySound,
       "darkgreen",
       "orange",
-      "orange"
+      "pink"
     );
     this.y = windowHeight / 3;
     this.textWidth = 500;
@@ -41,8 +41,14 @@ class Breath {
     background(255);
     fill("black");
     text(this.title, windowWidth / 2, 80);
+    if (this.mySound.isPlaying()) {
+      push();
+      this.soundVisual.circleGraph();
+      pop();
+    }
+
     push();
-    textSize(18);
+    textSize(20);
     this.text.map((sentence, index) => {
       text(
         sentence,
@@ -52,9 +58,6 @@ class Breath {
       );
     });
     pop();
-    if (this.mySound.isPlaying()) {
-      this.soundVisual.circleGraph();
-    }
   }
 
   mouseWheel(event) {

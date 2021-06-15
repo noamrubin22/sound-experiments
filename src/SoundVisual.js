@@ -48,7 +48,8 @@ class SoundVisual {
     let vol = this.amplitude.getLevel();
     this.volhistory.push(vol);
     stroke(this.circleGraphColor);
-    noFill();
+    // noFill();
+    fill("purple");
 
     translate(width / 2, height / 2);
     beginShape();

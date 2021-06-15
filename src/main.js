@@ -21,7 +21,7 @@ let music = new Music(chapterManager);
 let conclusion = new Conclusion(chapterManager);
 let mind = new MindPoem(chapterManager);
 
-let constant = music;
+let constant = ref;
 
 function preload() {
   constant.preload();

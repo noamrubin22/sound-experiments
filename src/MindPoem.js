@@ -2,7 +2,7 @@ class MindPoem {
   constructor(chapterManager) {
     this.poem = [
       "and i realized that my mind is not always right and i cannot always believe my thoughts,",
-      "but if i am not the one controlling my mind, then where is it that “i” am?",
+      "but if i am not the one that is controlling my mind, then where is it that “i” am?",
     ];
     this.chapterManager = chapterManager;
   }

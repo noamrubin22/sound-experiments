@@ -20,7 +20,9 @@ class Conclusion {
     ];
   }
 
-  preload() {}
+  preload() {
+    this.mySound = loadSound("assets/songs/light.mp3");
+  }
 
   setup() {
     textSize(60);
@@ -32,6 +34,10 @@ class Conclusion {
     background(255);
     fill(0);
     text(this.title, windowWidth / 2, 80);
+    if (!this.mySound.isPlaying()) {
+      this.mySound.play();
+    }
+
     push();
     textSize(20);
     this.text.map((sentence, index) => {
@@ -54,6 +60,7 @@ class Conclusion {
   }
 
   mousePressed() {
+    this.mySound.fade(0, 3);
     this.chapterManager.next();
   }
 }

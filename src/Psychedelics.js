@@ -22,7 +22,7 @@ class Psychedelics {
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/light.mp3");
+    this.mySound = loadSound("assets/songs/wavereturn.mp3");
   }
 
   setup() {
@@ -43,15 +43,14 @@ class Psychedelics {
     text(this.title, windowWidth / 2, 80);
 
     if (!this.mySound.isPlaying()) {
-      this.mySound.loop();
+      this.mySound.play();
     }
 
     for (let i = 0; i < this.tree.length; i++) {
       this.tree[i].show();
     }
-
     push();
-    textSize(18);
+    textSize(20);
     this.text.map((sentence, index) => {
       text(sentence, this.x + index * windowWidth, this.y, this.textWidth);
     });

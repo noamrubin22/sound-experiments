@@ -107,24 +107,27 @@ class References {
     };
     this.refMusic = {
       title: "music",
-      refs: ["blashflajlfjaa", "kajhflkahskfhaskfh", "ashfkajsf"],
+      refs: [
+        "1) Kaelen, M., Giribaldi, B., Raine, J., Evans, L., Timmerman, C., Rodriguez, N., ... & Carhart-Harris, R. (2018). The hidden therapist: evidence for a central role of music in psychedelic therapy. Psychopharmacology, 235(2), 505-519.",
+        "2) Fachner, J. (2011). Time is the key–music and altered states of consciousness. Altering consciousness: A multidisciplinary perspective, 1, 355-376.",
+      ],
     };
     this.songs = {
-      title: "songs",
+      title: "music",
       refs: [
         "Pain: nthng - Unfinished ",
         "The problem: nthng - Subnautica",
         "The beauty of science: nthng - E Crusader",
         "The Gut-Brain axis: Donato Dozzy - Vaporware",
         "The Breath: Joshua Sam Miller - Sit",
-        "Psychedelics:",
-        "Sound:",
-        "Discussion:",
+        "Psychedelics: nthng - Wave Return",
+        "Sound: Lawrence Laughing - Waterlife",
+        "Some Thoughts: nthng - And then there was light",
         "References: Nicolas Jaar - Hello, chain",
       ],
     };
     this.goodbye = {
-      title: "thanks for your attention",
+      title: "thanks for your time and attention",
       refs: [
         "this project was created in p5.js",
         "take care",
@@ -132,8 +135,8 @@ class References {
       ],
     };
     this.references = [
-      this.refGutBrain,
       this.refIntro,
+      this.refGutBrain,
       this.refBreath,
       this.refPsychedelics,
       this.refMusic,
@@ -159,7 +162,13 @@ class References {
     text(this.title, windowWidth / 2, 80);
     this.references.forEach((topic, index) => {
       textSize(21);
-      this.titlePosY = this.y + index * 2000;
+      let multiply;
+      if (topic === this.refMusic && this.songs) {
+        multiply = 2400;
+      } else {
+        multiply = 2000;
+      }
+      this.titlePosY = this.y + index * multiply;
       text(topic.title, windowWidth / 2, this.titlePosY);
       textSize(15);
       topic.refs.forEach((ref, index) => {
@@ -176,9 +185,9 @@ class References {
   mouseWheel(event) {
     //  move text
     if (event.deltaY > 0) {
-      this.y -= 10;
+      this.y -= 40;
     } else {
-      this.y += 10;
+      this.y += 30;
     }
 
     //  play music
