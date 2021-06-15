@@ -120,19 +120,19 @@ class References {
       ],
     };
     this.references = [
-      this.songs,
       this.refGutBrain,
       this.refIntro,
       this.refBreath,
       this.refPsychedelics,
       this.refMusic,
+      this.songs,
       this.goodbye,
     ];
     this.y = 200;
   }
 
   preload() {
-    this.mySound = loadSound("assets/songs/hellochain-cropped.mp3");
+    this.mySound = loadSound("assets/songs/hellochain.mp3");
   }
 
   setup() {
@@ -147,14 +147,14 @@ class References {
     text(this.title, windowWidth / 2, 80);
     this.references.forEach((topic, index) => {
       textSize(21);
-      this.titlePosY = this.y + index * 900;
+      this.titlePosY = this.y + index * 2000;
       text(topic.title, windowWidth / 2, this.titlePosY);
       textSize(15);
       topic.refs.forEach((ref, index) => {
         return text(
           ref,
           windowWidth / 2 - windowWidth / 2.4,
-          this.titlePosY + 50 + index * 50,
+          this.titlePosY + 100 + index * 90,
           windowWidth / 1.2
         );
       });
@@ -164,9 +164,9 @@ class References {
   mouseWheel(event) {
     //  move text
     if (event.deltaY > 0) {
-      this.y -= 2;
+      this.y -= 10;
     } else {
-      this.y += 2;
+      this.y += 10;
     }
 
     //  play music
@@ -174,10 +174,12 @@ class References {
       this.mySound.play();
     }
     clearTimeout(this.isScrolling);
+    this.mySound.setVolume(2);
 
     // pause music on stop scroll
     this.isScrolling = setTimeout(() => {
-      this.mySound.pause();
+      // this.mySound.pause();
+      this.mySound.setVolume(0.1);
     }, 1000);
 
     this.pos += event.delta;

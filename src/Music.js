@@ -10,11 +10,13 @@ class Music {
 
   preload() {}
 
-  setup() {}
+  setup() {
+    textAlign(CENTER);
+  }
 
   draw() {
-    background(209);
-    fill(255);
+    background(255);
+    fill(0);
     textSize(60);
     text(this.title, windowWidth / 2, 80);
     textSize(18);

@@ -33,7 +33,7 @@ class Breath {
       "orange",
       "orange"
     );
-    this.y = windowHeight / 3.5;
+    this.y = windowHeight / 3;
     this.textWidth = 500;
   }
 
